@@ -1,0 +1,13 @@
+<%= form_with model: @game_config,  url: { controller: "game_board", action: "startup" } do |form|%>
+  <div class="col-6 pb-3">
+    <%= form.label :attachment, class: "form-label"%>
+    <%= form.file_field :attachment, class: "form-control" %>
+    <% @game_config.errors.full_messages_for(:attachment).each do |message| %>
+      <div class="alert alert-danger" role="alert">
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
+  <%= form.hidden_field :can_start, :value => true %>
+  <%= form.submit "Upload", class: "btn btn-primary", disabled: @is_not_logged_in%>
+<% end %>

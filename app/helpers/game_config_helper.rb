@@ -1,0 +1,2 @@
+module GameConfigHelper
+end

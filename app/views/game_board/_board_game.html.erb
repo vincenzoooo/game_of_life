@@ -1,0 +1,21 @@
+<div class="col-12">
+  Generation <%= @game_board.configuration.generation %>
+</div>
+<div class="col-12">
+  Height: <%= @game_board.configuration.height %>, Width: <%= @game_board.configuration.width %>
+</div>
+<table class = "table table-bordered table-striped">
+   <tbody>
+      <% @game_board.citizens.each do |row| %>
+         <tr>
+            <% row.each do |column| %>
+                <td>
+                    <% if column.is_alive? %>*<% else %>.<% end %>
+                </td>
+            <% end %>
+         </tr>
+
+      <% end %>
+   </tbody>
+</table>
+<input type="hidden" id="game" value="<%= @game_board.to_yaml.to_json %>">

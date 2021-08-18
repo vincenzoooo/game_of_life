@@ -1,0 +1,19 @@
+<div class="row pb-3">
+  <div class="col-12 pb-3">
+    This is the game of life simulator, update a correct configuration and see what's going on. You can retrieve an initial configuration from <%= link_to 'HERE', game_setup_path, target: "_blank" %>
+  </div>
+  <div class="col-12">
+    <%= render :partial => "upload", :is_not_logged_in => ! user_signed_in? %>
+  </div>
+</div>
+<% if @game_config.can_start %>
+  <div class="row">
+    <div class="row" id="board_game">
+      <%= render :partial => "board_game", :game_board => @game_board %>
+    </div>
+  </div>
+  <div class="row pb-3">
+    <button id="game-start" class="btn btn-success">Start</button>
+  </div>
+<% end %>
+<%= javascript_pack_tag 'rungame' %>
