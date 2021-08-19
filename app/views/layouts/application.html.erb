@@ -14,7 +14,7 @@
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Game of Life 1.0</a>
+        <%= link_to "Game of Life 1.0", "/", :class => 'navbar-brand'  %>
         <div class="d-flex">
           <% if user_signed_in? %>
             <span class="navbar-text">Logged in as <strong><%= current_user.email %></strong></span>
